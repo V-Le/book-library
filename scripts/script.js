@@ -85,5 +85,14 @@ function createTable() {
   buttonDelete();
 };
 
+const btnAdd = document.querySelector('#ButtonAdd');
+btnAdd.addEventListener('click', function() {
+  let title = prompt('title', 'Alice\'s Adventures in Wonderland');
+  let author = prompt('author', 'Lewis Carroll');
+  let pages = prompt('pages', '70 pages');
+  let read = prompt('read', 'Not read');
+  addBookToLibrary(title, author, pages, read);
+});
+
 createTable();
 
