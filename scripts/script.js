@@ -39,7 +39,8 @@ function appendLibrary() {
     tableOneTR.innerHTML = `<td>${lib.title}</td>
                             <td>${lib.author}</td>
                             <td>${lib.pages}</td>
-                            <td>${lib.read}</td>`
+                            <td><button class='readBtn'>&nbsp</button>
+                            <span class='readTog'>${lib.read}</span></td>`
     tableOneTR.classList.add('tRow');
     tableOneBody.appendChild(tableOneTR);
   })
@@ -50,9 +51,25 @@ function addBookToLibrary(title, author, pages, read) {
   createTable();
 }
 
+function buttonReadToggle() {
+    const btnToggle = document.querySelectorAll('.readBtn');
+    const readText = document.querySelectorAll('.readTog');
+    
+      for(let i=0; i <= btnToggle.length-1; i++) {
+      btnToggle[i].addEventListener('click', function() {
+        if(readText[i].innerText === 'Not read') {
+          readText[i].innerText = 'Read'
+        } else {
+          readText[i].innerText = 'Not read'
+        }
+      });
+    }
+  }
+
 function createTable() {
   tableOneBody.innerHTML = '';
   appendLibrary();
+  buttonReadToggle();
 };
 
 createTable();
