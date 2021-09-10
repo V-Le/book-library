@@ -78,6 +78,13 @@ const deleteBtn = document.querySelectorAll('.deleteBtn');
     }
 };
 
+function deleteAllBooks() {
+    if(myLibrary.length > 0) {
+      myLibrary = [];
+      createTable();
+    }
+  }
+
 function createTable() {
   tableOneBody.innerHTML = '';
   appendLibrary();
@@ -93,6 +100,9 @@ btnAdd.addEventListener('click', function() {
   let read = prompt('read', 'Not read');
   addBookToLibrary(title, author, pages, read);
 });
+
+const btnDelete = document.querySelector('#ButtonDelete');
+btnDelete.addEventListener('click', deleteAllBooks);
 
 createTable();
 
