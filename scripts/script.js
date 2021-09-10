@@ -36,7 +36,7 @@ tableOne.appendChild(tableOneBody);
 function appendLibrary() { 
   myLibrary.forEach(function(lib) {
     const tableOneTR = document.createElement('tr');
-    tableOneTR.innerHTML = `<td>${lib.title}</td>
+    tableOneTR.innerHTML = `<td><button class='deleteBtn'>-</button>${lib.title}</td>
                             <td>${lib.author}</td>
                             <td>${lib.pages}</td>
                             <td><button class='readBtn'>&nbsp</button>
@@ -66,10 +66,23 @@ function buttonReadToggle() {
     }
   }
 
+function buttonDelete() {
+const deleteBtn = document.querySelectorAll('.deleteBtn');
+
+    for(let i=0; i <= deleteBtn.length-1; i++) {
+    deleteBtn[i].addEventListener('click', function() {
+    myLibrary.splice(i,1);
+    console.log(i);
+    createTable();
+    });
+    }
+};
+
 function createTable() {
   tableOneBody.innerHTML = '';
   appendLibrary();
   buttonReadToggle();
+  buttonDelete();
 };
 
 createTable();
