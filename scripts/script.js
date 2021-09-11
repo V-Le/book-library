@@ -45,15 +45,24 @@ function appendBookToLibrary() {
   })
 }
 
-//Button to add books to library
-const btnAdd = document.querySelector('#ButtonAdd');
-btnAdd.addEventListener('click', function() {
-  let title = prompt('title', 'Alice\'s Adventures in Wonderland');
-  let author = prompt('author', 'Lewis Carroll');
-  let pages = prompt('pages', '70 pages');
-  let read = prompt('read', 'Not read');
+//Form to add books to library
+const submitBook = document.querySelector('#submitBook');
+submitBook.addEventListener('click', submitBookToLibrary);
+
+function submitBookToLibrary() {
+  let title = document.querySelector('#bookName').value;
+  let author = document.querySelector('#authorName').value;
+  let pages = document.querySelector('#bookPages').value;
+  let read = '';
+  
+  let readCheckBox = document.querySelector('#readBook');
+  if(readCheckBox.checked == true){
+    read = 'Read';
+  } else {
+    read = "Not read";
+  }
   addBookToLibrary(title, author, pages, read);
-});
+}
 
 //Button to delete all books from library
 const btnDelete = document.querySelector('#ButtonDelete');
@@ -67,15 +76,16 @@ function addBookToLibrary(title, author, pages, read) {
 
 function btnReadToggle() {
     const btnToggle = document.querySelectorAll('.readBtn');
-    const readText = document.querySelectorAll('.readTog');
     
       for(let i=0; i <= btnToggle.length-1; i++) {
-      btnToggle[i].addEventListener('click', function() {
-        if(readText[i].innerText === 'Not read') {
-          readText[i].innerText = 'Read'
-        } else {
-          readText[i].innerText = 'Not read'
-        }
+        btnToggle[i].addEventListener('click', function() {
+          if(myLibrary[i].read === 'Not read') {
+            myLibrary[i].read = 'Read'
+            createLibraryTable()
+            } else {
+            myLibrary[i].read = 'Not read'
+            createLibraryTable()
+          }
       });
     }
   }

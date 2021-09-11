@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <button id='ButtonAdd'>Add</button>
+    <form id="myForm">
+    Book name: <input id="bookName" type="text" name="bookName" value="Alice's Adventures in Wonderland"><br>
+    Author name: <input id="authorName" type="text" name="authorName" value="Lewis Carroll"><br>
+    Pages: <input id="bookPages" type="text" name="bookPages" value="70 pages"><br>
+    Read?: <input id="readBook" type="checkbox" name="readBook" value="Not read"><br>
+    <input id="submitBook" type="button" value="Submit">
+    </form> 
+    <p>
     <button id='ButtonDelete'>Delete All</button>
     <script src="./scripts/script.js"></script>
 </body>
