@@ -1,5 +1,4 @@
 let body = document.querySelector('body');
-
 let myLibrary = [];
 
 //Book constructor
@@ -45,29 +44,26 @@ function appendBookToLibrary() {
   })
 }
 
-//Form to add books to library
+//Button to delete all books from library
+const btnDelete = document.querySelector('#ButtonDelete');
+btnDelete.addEventListener('click', deleteAllBooksFromLibrary);
+
+//Submition to add books to library
 const submitBook = document.querySelector('#submitBook');
 submitBook.addEventListener('click', submitBookToLibrary);
 
 function submitBookToLibrary() {
   let title = document.querySelector('#bookName').value;
   let author = document.querySelector('#authorName').value;
-  let pages = document.querySelector('#bookPages').value;
+  let pages = document.querySelector('#bookPages').value + ' pages';
   let read = '';
   
   let readCheckBox = document.querySelector('#readBook');
   if(readCheckBox.checked == true){
     read = 'Read';
-  } else {
-    read = "Not read";
-  }
+  } else { read = "Not read"; }
   addBookToLibrary(title, author, pages, read);
 }
-
-//Button to delete all books from library
-const btnDelete = document.querySelector('#ButtonDelete');
-btnDelete.addEventListener('click', deleteAllBooksFromLibrary);
-
 
 function addBookToLibrary(title, author, pages, read) {
   const addBook = new Book(title, author, pages, read);
@@ -75,38 +71,38 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function btnReadToggle() {
-    const btnToggle = document.querySelectorAll('.readBtn');
+  const btnToggle = document.querySelectorAll('.readBtn');
     
-      for(let i=0; i <= btnToggle.length-1; i++) {
-        btnToggle[i].addEventListener('click', function() {
-          if(myLibrary[i].read === 'Not read') {
-            myLibrary[i].read = 'Read'
-            createLibraryTable()
-            } else {
-            myLibrary[i].read = 'Not read'
-            createLibraryTable()
-          }
-      });
-    }
+  for(let i=0; i <= btnToggle.length-1; i++) {
+    btnToggle[i].addEventListener('click', function() {
+      if(myLibrary[i].read === 'Not read') {
+        myLibrary[i].read = 'Read'
+        createLibraryTable()
+        } else {
+        myLibrary[i].read = 'Not read'
+        createLibraryTable()
+        }
+    });
   }
+}
 
 function deleteBookFromLibrary() {
 const deleteBtn = document.querySelectorAll('.deleteBtn');
 
-    for(let i=0; i <= deleteBtn.length-1; i++) {
+  for(let i=0; i <= deleteBtn.length-1; i++) {
     deleteBtn[i].addEventListener('click', function() {
-    myLibrary.splice(i,1);
-    createLibraryTable();
+      myLibrary.splice(i,1);
+      createLibraryTable();
     });
-    }
+  }
 };
 
 function deleteAllBooksFromLibrary() {
-    if(myLibrary.length > 0) {
-      myLibrary = [];
-      createLibraryTable();
-    }
+  if(myLibrary.length > 0) {
+    myLibrary = [];
+    createLibraryTable();
   }
+}
 
 function createLibraryTable() {
   tableBody.innerHTML = '';
@@ -115,7 +111,4 @@ function createLibraryTable() {
   deleteBookFromLibrary();
 };
 
-
-
 createLibraryTable();
-
