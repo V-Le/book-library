@@ -80,7 +80,7 @@ function btnReadToggle() {
         createLibraryTable()
         } else {
         myLibrary[i].read = 'Not read'
-        createLibraryTable()
+        createLibraryTable();
         }
     });
   }
@@ -98,9 +98,12 @@ const deleteBtn = document.querySelectorAll('.deleteBtn');
 };
 
 function deleteAllBooksFromLibrary() {
-  if(myLibrary.length > 0) {
-    myLibrary = [];
-    createLibraryTable();
+  let confirmDelete = confirm('Are you sure you want to delete all?');
+  if (confirmDelete == true){
+    if(myLibrary.length > 0) {
+      myLibrary = [];
+      createLibraryTable();
+    }
   }
 }
 
