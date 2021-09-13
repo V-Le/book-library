@@ -1,4 +1,4 @@
-let body = document.querySelector('body');
+let bodyDiv = document.querySelector('#libraryTable');
 let myLibrary = [];
 
 //Book constructor
@@ -16,9 +16,8 @@ const bookTwo = new Book('Harry Potter and the Sorcerer\'s Stone', 'J.K. Rowling
 
 //Creating initial table
 const tableMain = document.createElement('table');
-tableMain.style.border = '1px black solid';
 tableMain.classList.add('tableMain');
-body.appendChild(tableMain);
+bodyDiv.appendChild(tableMain);
 
 const tableHeader = document.createElement('thead');
 tableMain.appendChild(tableHeader);
@@ -38,8 +37,7 @@ function appendBookToLibrary() {
     tableBodyRow.innerHTML = `<td><button class='deleteBtn'>-</button>${book.title}</td>
                             <td>${book.author}</td>
                             <td>${book.pages}</td>
-                            <td><button class='readBtn'>&nbsp</button>
-                            <span class='readTog'>${book.read}</span></td>`
+                            <td><button class='readBtn'>&nbsp</button>${book.read}</td>`
     tableBody.appendChild(tableBodyRow);
   })
 }

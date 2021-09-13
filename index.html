@@ -8,15 +8,21 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <form id="myForm">
-    Book name: <input id="bookName" type="text" name="bookName" value="Alice's Adventures in Wonderland"><br>
-    Author name: <input id="authorName" type="text" name="authorName" value="Lewis Carroll"><br>
-    Pages: <input id="bookPages" type="number" name="bookPages" value="70"><br>
-    Read?: <input id="readBook" type="checkbox" name="readBook" value="Not read"><br>
-    <input id="submitBook" type="button" value="Submit">
-    </form> 
-    <p>
-    <button id='ButtonDelete'>Delete All</button>
+    <div class="mainContainer mainLight mainDark">
+        <h1>A Simple Library</h1>
+        
+        <form id="myForm">
+            <h2>Add Book</h2>
+            <input id="bookName" type="text" name="bookName" placeholder="Book">
+            <input id="authorName" type="text" name="authorName" placeholder="Author">
+            <input id="bookPages" type="number" name="bookPages" placeholder="Pages">
+            <div id="readDiv">Read?: <input id="readBook" type="checkbox" name="readBook" value="Not read"></div>
+            <input id="submitBook" type="button" value="Submit">
+        </form> 
+        <p>
+        <button id='ButtonDelete'>Delete All</button>
+        <section id="libraryTable"></section>
+    </div>
     <script src="./scripts/script.js"></script>
 </body>
 </html>
