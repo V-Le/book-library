@@ -99,7 +99,7 @@ const deleteBtn = document.querySelectorAll('.deleteBtn');
 
 function deleteAllBooksFromLibrary() {
   let confirmDelete = confirm('Are you sure you want to delete all?');
-  if (confirmDelete == true){
+  if (confirmDelete) {
     if(myLibrary.length > 0) {
       myLibrary = [];
       createLibraryTable();
