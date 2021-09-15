@@ -106,13 +106,17 @@ const deleteBtn = document.querySelectorAll('.deleteBtn');
 };
 
 function deleteAllBooksFromLibrary() {
-  let confirmDelete = confirm('Are you sure you want to delete all?');
-  if (confirmDelete) {
-    if(myLibrary.length > 0) {
-      myLibrary = [];
-      createLibraryTable();
+  if(myLibrary.length == 0) {
+    alert('Nothing to delete');
+  } else {
+      let confirmDelete = confirm('Are you sure you want to delete all?');
+      if (confirmDelete) {
+        if(myLibrary.length > 0) {
+          myLibrary = [];
+          createLibraryTable();
+        }
+      }
     }
-  }
 }
 
 function createLibraryTable() {
