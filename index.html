@@ -13,14 +13,14 @@
         
         <form id="myForm">
             <h2>Add Book</h2>
-            <input id="bookName" type="text" name="bookName" placeholder="Book">
-            <input id="authorName" type="text" name="authorName" placeholder="Author">
-            <input id="bookPages" type="number" name="bookPages" placeholder="Pages">
+            <input id="bookName" type="text" name="bookName" placeholder="Book" required>
+            <input id="authorName" type="text" name="authorName" placeholder="Author" required>
+            <input id="bookPages" type="number" name="bookPages" placeholder="Pages" required>
             <div id="readDiv">Read?: <input id="readBook" type="checkbox" name="readBook" value="Not read"></div>
-            <input id="submitBook" type="button" value="Submit">
+            <input id="submitBook" type="submit" value="Submit">
         </form> 
         <p>
-        <button id='ButtonDelete'>Delete All</button>
+        <div id="delBtn"><button id='ButtonDelete'>Delete All</button></div>
         <section id="libraryTable"></section>
     </div>
     <script src="./scripts/script.js"></script>
