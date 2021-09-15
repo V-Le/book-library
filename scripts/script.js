@@ -60,7 +60,13 @@ function submitBookToLibrary() {
   if(readCheckBox.checked == true){
     read = 'Read';
   } else { read = "Not read"; }
-  addBookToLibrary(title, author, pages, read);
+
+  //needs to be fixed
+  if (title == '' || author == '' || pages == '') {
+
+  } else {
+    addBookToLibrary(title, author, pages, read);
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
