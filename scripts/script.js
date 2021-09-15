@@ -53,7 +53,7 @@ submitBook.addEventListener('click', submitBookToLibrary);
 function submitBookToLibrary() {
   let title = document.querySelector('#bookName').value;
   let author = document.querySelector('#authorName').value;
-  let pages = document.querySelector('#bookPages').value + ' pages';
+  let pages = document.querySelector('#bookPages').value;
   let read = '';
   
   let readCheckBox = document.querySelector('#readBook');
@@ -61,16 +61,20 @@ function submitBookToLibrary() {
     read = 'Read';
   } else { read = "Not read"; }
 
-  //needs to be fixed
-  if (title == '' || author == '' || pages == '') {
 
+  if (title == '' || author == '' || pages == '') {
+    alert("Please fill in all fields")
   } else {
-    addBookToLibrary(title, author, pages, read);
+    addBookToLibrary(title, author, pages + ' pages', read);
   }
 }
 
 function addBookToLibrary(title, author, pages, read) {
   const addBook = new Book(title, author, pages, read);
+  document.querySelector('#bookName').value = '';
+  document.querySelector('#authorName').value = '';
+  document.querySelector('#bookPages').value = '';
+  document.querySelector('#readBook').checked = false;
   createLibraryTable();
 }
 
