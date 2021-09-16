@@ -50,11 +50,25 @@ btnDelete.addEventListener('click', deleteAllBooksFromLibrary);
 const submitBook = document.querySelector('#submitBook');
 submitBook.addEventListener('click', submitBookToLibrary);
 
+//Modal functionality
+const modalForm = document.querySelector('#modal-Container');
+const buttonAdd = document.querySelector('#ButtonAdd');
+const closeForm = document.querySelector('#closeBook');
+
+buttonAdd.addEventListener('click', function() {
+  modalForm.style.display = 'flex';
+});
+
+closeForm.addEventListener('click', function() {
+  modalForm.style.display = 'none';
+});
+
 function submitBookToLibrary() {
   let title = document.querySelector('#bookName').value;
   let author = document.querySelector('#authorName').value;
   let pages = document.querySelector('#bookPages').value;
   let read = '';
+  
   
   let readCheckBox = document.querySelector('#readBook');
   if(readCheckBox.checked == true){
@@ -65,6 +79,7 @@ function submitBookToLibrary() {
   if (title == '' || author == '' || pages == '') {
     alert("Please fill in all fields")
   } else {
+    modalForm.style.display = 'none';
     addBookToLibrary(title, author, pages + ' pages', read);
   }
 }

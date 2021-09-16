@@ -29,7 +29,7 @@ body {
 }
 
 #modal-Container {
-  display: flex;
+  display: none;
   justify-content: center;
   position: fixed;
   z-index: 1;
@@ -66,6 +66,7 @@ body {
   color: var(--other-one-color) ;
   text-decoration: none;
   cursor: pointer;
+  transition: all .2s ease;
 }
 
 #myForm #bookName,
@@ -85,11 +86,14 @@ body {
   padding: 5px 30px;
 }
 
-#delBtn {
+#mainBtns {
+  display: flex;
+  justify-content: space-between;
   width: 79%;
 }
 
-button#ButtonDelete {
+button#ButtonDelete,
+button#ButtonAdd {
   padding: 3px 10px;
 }
 
