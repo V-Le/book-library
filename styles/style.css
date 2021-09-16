@@ -28,6 +28,15 @@ body {
   align-items: center;
 }
 
+#form-Container {
+  display: block;
+  position: fixed;
+  top: 50%;
+	left: 50%;
+  width: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
 #myForm {
   display: flex;
   flex-flow: column wrap;
