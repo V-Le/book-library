@@ -31,6 +31,12 @@ tableHeader.appendChild(tableHeaderRow);
 const tableBody = document.createElement('tbody');
 tableMain.appendChild(tableBody);
 
+//Closing modal if clicked outside
+window.addEventListener('click', function(event) {
+  if(event.target == modalForm) {
+    modalForm.style.display = 'none';
+}});
+
 function appendBookToLibrary() { 
   myLibrary.forEach(function(book) {
     const tableBodyRow = document.createElement('tr');
