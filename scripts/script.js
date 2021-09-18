@@ -1,5 +1,15 @@
 let bodyDiv = document.querySelector('#libraryTable');
-let myLibrary = [];
+
+if (localStorage.getItem('myLibrary') === null) {
+  var myLibrary = [];
+} else {
+  const booksFromStorage = JSON.parse(localStorage.getItem('myLibrary'));
+  myLibrary = booksFromStorage;
+}
+
+//localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+//myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+
 
 //Book constructor
 function Book(title, author, pages, read) {
@@ -8,11 +18,12 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
   myLibrary.push(this);
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
 
 //Book variables
-const bookOne = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'Not read');
-const bookTwo = new Book('Harry Potter and the Sorcerer\'s Stone', 'J.K. Rowling', '309 pages', 'Not read');
+//const bookOne = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'Not read');
+//const bookTwo = new Book('Harry Potter and the Sorcerer\'s Stone', 'J.K. Rowling', '309 pages', 'Not read');
 
 //Creating initial table
 const tableMain = document.createElement('table');
@@ -106,9 +117,11 @@ function btnReadToggle() {
     btnToggle[i].addEventListener('click', function() {
       if(myLibrary[i].read === 'Not read') {
         myLibrary[i].read = 'Read'
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
         createLibraryTable()
         } else {
         myLibrary[i].read = 'Not read'
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
         createLibraryTable();
         }
     });
@@ -121,6 +134,7 @@ const deleteBtn = document.querySelectorAll('.deleteBtn');
   for(let i=0; i <= deleteBtn.length-1; i++) {
     deleteBtn[i].addEventListener('click', function() {
       myLibrary.splice(i,1);
+      localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
       createLibraryTable();
     });
   }
@@ -134,6 +148,7 @@ function deleteAllBooksFromLibrary() {
       if (confirmDelete) {
         if(myLibrary.length > 0) {
           myLibrary = [];
+          localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
           createLibraryTable();
         }
       }
@@ -142,9 +157,11 @@ function deleteAllBooksFromLibrary() {
 
 function createLibraryTable() {
   tableBody.innerHTML = '';
+  
   appendBookToLibrary();
   btnReadToggle();
   deleteBookFromLibrary();
 };
 
 createLibraryTable();
+

@@ -126,14 +126,14 @@ tr:nth-child(even) { background-color: var(--other-two-color);}
 tr:nth-child(odd) { background-color: var(--other-three-color);}
 
 th:nth-child(1) { width: 50%;}
-th:nth-child(2) { width: 30%;}
-th:nth-child(3) { width: 10%;}
-th:nth-child(4) { width: 10%;}
+th:nth-child(2) { width: 20%;}
+th:nth-child(3) { width: 15%;}
+th:nth-child(4) { width: 15%;}
 
 td:nth-child(1) { width: 50%;}
-td:nth-child(2) { width: 30%;}
-td:nth-child(3) { width: 10%; text-align: right;}
-td:nth-child(4) { width: 10%;}
+td:nth-child(2) { width: 20%;}
+td:nth-child(3) { width: 15%; text-align: right;}
+td:nth-child(4) { width: 15%;}
 /* stylelint-enable */
 
 input[type=checkbox] {
