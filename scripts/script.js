@@ -92,14 +92,7 @@ function submitBookToLibrary() {
     read = 'Read';
   } else { read = "Not read"; }
 
-
-  if (bookInput.checkValidity() && authorInput.checkValidity() && pageInput.checkValidity()) {
-    modalForm.style.display = 'none';
-    addBookToLibrary(title, author, pages + ' pages', read);
-  }
-}
-
-const bookInput = document.querySelector('#bookName');
+  const bookInput = document.querySelector('#bookName');
 bookInput.addEventListener('input', ()=> {
   bookInput.setCustomValidity('');
   bookInput.checkValidity();
@@ -140,6 +133,13 @@ pageInput.addEventListener('invalid', ()=> {
     pageInput.setCustomValidity('Pea3');
   }
 });
+
+
+  if (bookInput.checkValidity() && authorInput.checkValidity() && pageInput.checkValidity()) {
+    /* modalForm.style.display = 'none'; */
+    addBookToLibrary(title, author, pages + ' pages', read);
+  }
+}
 
 function addBookToLibrary(title, author, pages, read) {
   const addBook = new Book(title, author, pages, read);
