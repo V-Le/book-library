@@ -93,13 +93,53 @@ function submitBookToLibrary() {
   } else { read = "Not read"; }
 
 
-  if (title == '' || author == '' || pages == '') {
-    alert("Please fill in all fields")
-  } else {
+  if (bookInput.checkValidity() && authorInput.checkValidity() && pageInput.checkValidity()) {
     modalForm.style.display = 'none';
     addBookToLibrary(title, author, pages + ' pages', read);
   }
 }
+
+const bookInput = document.querySelector('#bookName');
+bookInput.addEventListener('input', ()=> {
+  bookInput.setCustomValidity('');
+  bookInput.checkValidity();
+});
+
+bookInput.addEventListener('invalid', ()=> {
+  if(bookInput.value === '') {
+    bookInput.setCustomValidity('Please enter a book name.');
+  } else {
+    bookInput.setCustomValidity('Pea1');
+  }
+});
+
+const authorInput = document.querySelector('#authorName');
+authorInput.addEventListener('input', ()=> {
+  authorInput.setCustomValidity('');
+  authorInput.checkValidity();
+});
+
+authorInput.addEventListener('invalid', ()=> {
+  if(authorInput.value === '') {
+    authorInput.setCustomValidity('Please enter a author name.');
+  } else {
+    authorInput.setCustomValidity('Pea2');
+  }
+});
+
+const pageInput = document.querySelector('#bookPages');
+pageInput.addEventListener('input', ()=> {
+  pageInput.setCustomValidity('');
+  pageInput.checkValidity();
+});
+
+pageInput.addEventListener('invalid', ()=> {
+  if(pageInput.value === '') {
+    pageInput.setCustomValidity('Please enter page numbers.');
+  } else {
+    pageInput.setCustomValidity('Pea3');
+  }
+});
 
 function addBookToLibrary(title, author, pages, read) {
   const addBook = new Book(title, author, pages, read);

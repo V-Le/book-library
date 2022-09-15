@@ -54,6 +54,16 @@ body {
   background-color: var(--primary-color);
 }
 
+
+
+input:not(:placeholder-shown):invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+input:focus:invalid {
+  box-shadow: none;
+}
+
 #closeBook {
   align-self: flex-end;
   color: var(--secondary-color) ;
