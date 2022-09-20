@@ -101,8 +101,6 @@ bookInput.addEventListener('input', ()=> {
 bookInput.addEventListener('invalid', ()=> {
   if(bookInput.value === '') {
     bookInput.setCustomValidity('Please enter a book name.');
-  } else {
-    bookInput.setCustomValidity('Pea1');
   }
 });
 
@@ -115,8 +113,6 @@ authorInput.addEventListener('input', ()=> {
 authorInput.addEventListener('invalid', ()=> {
   if(authorInput.value === '') {
     authorInput.setCustomValidity('Please enter a author name.');
-  } else {
-    authorInput.setCustomValidity('Pea2');
   }
 });
 
@@ -129,24 +125,17 @@ pageInput.addEventListener('input', ()=> {
 pageInput.addEventListener('invalid', ()=> {
   if(pageInput.value === '') {
     pageInput.setCustomValidity('Please enter page numbers.');
-  } else {
-    pageInput.setCustomValidity('Pea3');
   }
 });
 
 
   if (bookInput.checkValidity() && authorInput.checkValidity() && pageInput.checkValidity()) {
-    /* modalForm.style.display = 'none'; */
     addBookToLibrary(title, author, pages + ' pages', read);
   }
 }
 
 function addBookToLibrary(title, author, pages, read) {
   const addBook = new Book(title, author, pages, read);
-  document.querySelector('#bookName').value = '';
-  document.querySelector('#authorName').value = '';
-  document.querySelector('#bookPages').value = '';
-  document.querySelector('#readBook').checked = false;
   createLibraryTable();
 }
 
